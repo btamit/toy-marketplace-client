@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 const AllToys = () => {
  const [toys, setToys] = useState([]);
   const [searchText, setSearchText] = useState("");
-
+ useEffect(() => {
+   document.title = "Toy-Shop | All Toys";
+ }, []);
  useEffect(() => {
    fetch("http://localhost:5000/allToys")
      .then((res) => res.json())

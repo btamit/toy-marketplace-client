@@ -1,6 +1,10 @@
-import React from "react";
+import { useEffect } from "react";
 
 const Blog = () => {
+  useEffect(() => {
+    document.title = "Toy-Shop | Blog";
+  }, []);
+
   return (
     <div className="my-container text-justify">
       <h2 className="max-w-lg mb-10 font-sans text-3xl font-bold tracking-tight sm:text-4xl md:mx-auto">
@@ -111,14 +115,15 @@ const Blog = () => {
             of documents. <br />
             02. Processing Order: The pipeline stages are executed in the order
             they appear in the pipeline. The output of one stage becomes the
-            input for the next stage, allowing you to chain operations together. <br/>
-            03.Aggregation Operators: The aggregate framework provides a wide range
-            of operators that you can use within pipeline stages to perform
-            various computations, transformations, and aggregations. Some
-            examples include: Arithmetic operators: $add, $subtract, $multiply,
-            etc. Comparison operators: $eq, $ne, $gt, $lt, etc. Array operators:
-            $size, $push, $addToSet, etc. Accumulators: $sum, $avg, $min, $max,
-            etc.
+            input for the next stage, allowing you to chain operations together.{" "}
+            <br />
+            03.Aggregation Operators: The aggregate framework provides a wide
+            range of operators that you can use within pipeline stages to
+            perform various computations, transformations, and aggregations.
+            Some examples include: Arithmetic operators: $add, $subtract,
+            $multiply, etc. Comparison operators: $eq, $ne, $gt, $lt, etc. Array
+            operators: $size, $push, $addToSet, etc. Accumulators: $sum, $avg,
+            $min, $max, etc.
           </p>
         </div>
       </div>

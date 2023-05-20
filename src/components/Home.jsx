@@ -18,6 +18,10 @@ const Home = () => {
     if(navigation.state=='loading'){
       return <LoadingSpinner></LoadingSpinner>
     }
+    useEffect(() =>{
+      document.title = "Toy-Shop | Home"
+    },[]);
+
 
   const [upcomingCars, setupcomingCars] = useState([]);
   useEffect(() => {
@@ -71,6 +75,7 @@ const Home = () => {
           className="my-container flex flex-col items-center justify-between lg:flex-row"
           data-aos="flip-left"
           data-aos-duration="1000"
+          data-aos-easing="ease-out-cubic"
         >
           <div className="relative lg:w-1/2 ">
             <div className="w-full lg:ml-auto py-20 sm:h-96">

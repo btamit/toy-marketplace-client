@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import CreatableSelect from "react-select/creatable";
 import { AuthContext } from "../providers/AuthProvider";
@@ -9,7 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 const AddAToy = () => {
 
  const { user } = useContext(AuthContext);
-
+ useEffect(() => {
+   document.title = "Toy-Shop | Add A Toy";
+ }, []);
  const {
    register,
    handleSubmit,

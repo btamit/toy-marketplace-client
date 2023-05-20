@@ -14,6 +14,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import AllToys from "./components/AllToys";
 import MyToys from "./components/MyToys";
 import AddAToy from "./components/AddAToy";
+import usePageTitle from "./utilities/pageTitle";
 
 const router = createBrowserRouter([
   {

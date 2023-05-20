@@ -6,6 +6,9 @@ const MyToys = () => {
   const {user} = useContext(AuthContext);
  const [toys, setToys] = useState([]);
  const [control, setControl] = useState([]);
+  useEffect(() => {
+    document.title = "Toy-Shop | My Toys";
+  }, []);
   useEffect(() =>{
     fetch(`http://localhost:5000/myAllToys/${user?.email}`)
     .then(res => res.json())
@@ -30,6 +33,11 @@ const MyToys = () => {
 
     return (
       <div className="my-container">
+        <div className='text-center mb-5'>
+          <button className="btn btn-primary">
+            Sorting by price
+          </button>
+        </div>
         <div className="overflow-x-auto">
           <table className="table table-compact w-full">
             <thead>
@@ -66,7 +74,10 @@ const MyToys = () => {
                     >
                       Update
                     </label>
-                    <UpdateToy toy={toy} handleUpdate={handleUpdate}></UpdateToy>
+                    <UpdateToy
+                      toy={toy}
+                      handleUpdate={handleUpdate}
+                    ></UpdateToy>
                   </td>
                   <td>
                     {" "}
