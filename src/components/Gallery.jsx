@@ -3,7 +3,7 @@ import { FaStar} from "react-icons/fa";
 const Gallery = ({gallery}) => {
     const { img, title, subTitle, icon, eyeIcon, views } = gallery;
   return (
-    <div className="bg-zinc-600 p-5 rounded flex flex-col">
+    <div className="bg-zinc-500 p-5 rounded flex flex-col">
       <img
         className="w-96 h-48 mb-8 bg-gray-200 p-2 rounded"
         src={img}

@@ -66,10 +66,10 @@ const Home = () => {
 
   return (
     <>
-      <div className="bg-gray-900 pb-48 my-container">
+      <div className="bg-gray-900 my-container">
         <div className="my-container flex flex-col items-center justify-between lg:flex-row">
           <div className="relative lg:w-1/2 ">
-            <div className="w-full lg:ml-auto h-60  sm:h-96">
+            <div className="w-full lg:ml-auto py-20 sm:h-96">
               <img
                 src="https://wallpapers.com/images/hd/muscle-cars-pictures-mgz491wbr295tufg.jpg"
                 alt=""
@@ -79,17 +79,12 @@ const Home = () => {
           <div className="mb-10 lg:max-w-lg  lg:pr-1 lg:mb-0">
             <div className="max-w-xl mb-6 lg:mt-8">
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none text-white">
-                Welcome to Toy Shop{" "}
-                {/* <br className="hidden md:block" /> We supply best collection <br></br> */}
-                <span className="inline-block text-blue-400">
-                  {" "}
-                  We supply best collection
-                </span>
+                Get best products with{" "}
+                <span className="inline-block text-blue-400"> guarantee</span>
               </h2>
               <p className="text-base text-white md:text-lg">
-                Explore thousands of job opportunities with all the information
-                you need. Its your future. Come find it. Manage all your job
-                application from start to finish.
+                Explore thousands of products staying at home. Toy Shop always try to bring latest and innovative products according to your
+                need. 
               </p>
             </div>
             <div className="flex flex-col items-center md:flex-row">
@@ -112,7 +107,7 @@ const Home = () => {
           and preferences. However, here are a few classic and universally loved
           recipes that are often considered some of the best:
         </p>
-        <div className="grid md:grid-cols-4 gap-5 mt-12 bg-slate-400">
+        <div className="grid md:grid-cols-4 p-5 gap-5 mt-12 bg-slate-800">
           {galleries.map((gallery) => (
             <Gallery key={gallery.id} gallery={gallery}></Gallery>
           ))}

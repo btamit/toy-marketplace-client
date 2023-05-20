@@ -1,69 +1,77 @@
 import React, { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
-import CreatableSelect from "react-select/creatable";
 import { AuthContext } from "../providers/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
 
+const UpdateToy = ({toy,handleUpdate}) => {
+  const { user } = useContext(AuthContext);
+  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-const AddAToy = () => {
-
- const { user } = useContext(AuthContext);
-
- const {
-   register,
-   handleSubmit,
-   formState: { errors },
- } = useForm();
-
- const onSubmit = (data,e) => {
-   fetch("http://localhost:5000/addAToy", {
-     method: "POST",
-     headers: { "Content-Type": "application/json" },
-     body: JSON.stringify(data),
-   })
-     .then((res) => res.json())
-     .then((result) => {
-       console.log(result);
-       if(result.insertedId){
-        toast('Toy added successfully');
-        e.target.reset();
-       }
-     });
-   console.log(data);
- };
+//   const onSubmit = (data, e) => {
+//     fetch("http://localhost:5000/addAToy", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(data),
+//     })
+//       .then((res) => res.json())
+//       .then((result) => {
+//         console.log(result);
+//         if (result.insertedId) {
+//           toast("Toy added successfully");
+//           e.target.reset();
+//         }
+//       });
+//     console.log(data);
+//   };
 
   return (
-    <>
-      <div className="my-container">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold my-10">Please Add Toys !!</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
+    <div>
+      {/* The button to open modal */}
+
+      {/* Put this part before </body> tag */}
+      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <form onSubmit={handleSubmit(handleUpdate)}>
             {errors.exampleRequired && <span>This field is required</span>}
             <div>
               <input
                 className="w-1/3 p-2 mr-24"
                 {...register("image")}
-                placeholder="Photo URL"
+                // placeholder="Photo URL"
+                defaultValue={toy?.image}
                 type="url"
               />
               <input
                 className="w-1/3 p-2"
                 {...register("toyName", { required: true })}
-                placeholder="Toy Name"
+                // placeholder="Toy Name"
+                defaultValue={toy?.toyName}
+              />
+              <input
+                className="w-1/3 p-2 hidden"
+                {...register("_id", { required: true })}
+                // placeholder="Toy Name"
+                defaultValue={toy?._id}
               />
             </div>
             <div>
               <input
                 className="w-1/3 p-2 my-3 mr-24"
                 {...register("sellerName", { required: true })}
-                placeholder="Seller Name"
+                // placeholder="Seller Name"
+                defaultValue={toy?.sellerName}
               />
               <input
                 className="w-1/3 p-2 my-3"
                 value={user?.email}
                 {...register("email")}
-                placeholder="Your Email"
+                // placeholder="Your Email"
                 type="email"
               />
             </div>
@@ -72,12 +80,14 @@ const AddAToy = () => {
                 className="w-1/3 p-2 mr-24 my-3"
                 {...register("price", { required: true })}
                 placeholder="Price"
+                defaultValue={toy?.price}
                 type="number"
               />
               <input
                 className="w-1/3 p-2 my-3"
                 {...register("rating", { required: true })}
-                placeholder="Rating"
+                // placeholder="Rating"
+                defaultValue={toy?.rating}
                 type="number"
               />
             </div>
@@ -87,6 +97,7 @@ const AddAToy = () => {
                 className="w-1/3 p-2 mr-24 my-3"
                 {...register("quantity", { required: true })}
                 placeholder="Quantity"
+                defaultValue={toy?.quantity}
                 type="number"
               />
               <select className="w-1/3 p-2" {...register("category")}>
@@ -101,16 +112,21 @@ const AddAToy = () => {
                 className="p-8 w-3/4"
                 {...register("description")}
                 placeholder="Description"
+                defaultValue={toy?.description}
               />
             </div>
 
-            <input className="btn my-10" value="Add Toy" type="submit" />
+            <input className="btn my-10" value="Update" type="submit" />
           </form>
+          <div className="modal-action">
+            <label htmlFor="my-modal-5" className="btn">
+              X
+            </label>
+          </div>
         </div>
       </div>
-      <ToastContainer />
-    </>
+    </div>
   );
 };
 
-export default AddAToy;
+export default UpdateToy;

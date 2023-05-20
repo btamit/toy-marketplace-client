@@ -36,6 +36,7 @@ const handleSearch = () =>{
           <input
             onChange={(e) => setSearchText(e.target.value)}
             type="text"
+            placeholder="Toy's Name"
             className="p-3 bg-slate-600"
           />
           <button onClick={handleSearch} className="btn btn-primary">Search</button>
