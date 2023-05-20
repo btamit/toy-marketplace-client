@@ -67,7 +67,11 @@ const Home = () => {
   return (
     <>
       <div className="bg-gray-900 my-container">
-        <div className="my-container flex flex-col items-center justify-between lg:flex-row">
+        <div
+          className="my-container flex flex-col items-center justify-between lg:flex-row"
+          data-aos="flip-left"
+          data-aos-duration="1000"
+        >
           <div className="relative lg:w-1/2 ">
             <div className="w-full lg:ml-auto py-20 sm:h-96">
               <img
@@ -83,11 +87,17 @@ const Home = () => {
                 <span className="inline-block text-blue-400"> guarantee</span>
               </h2>
               <p className="text-base text-white md:text-lg">
-                Explore thousands of products staying at home. Toy Shop always try to bring latest and innovative products according to your
-                need. 
+                Explore thousands of products staying at home. Toy Shop always
+                try to bring latest and innovative products according to your
+                need.
               </p>
             </div>
-            <div className="flex flex-col items-center md:flex-row">
+            <div
+              className="flex flex-col items-center md:flex-row"
+              data-aos="zoom-in"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+            >
               <Link to="" className="btn md:w-auto md:mr-4 border-none">
                 <div className="inline-flex items-center justify-center w-full h-full">
                   <p className="mr-3">Get Started</p>
