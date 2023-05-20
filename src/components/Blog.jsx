@@ -13,19 +13,21 @@ const Blog = () => {
             where should we store them on the client-side?
           </p>
           <p>
-            Context provides a way to pass data through the component tree
-            without having to pass props down manually at every level. It is
-            used only when we need to share state between lot's of components
-            with a lot of nesting. Actually, managing state is an essential part
-            of developing applications in React. A common way to manage state is
-            by passing props. Passing props means sending data from one
-            component to another. It's a good way to make sure that data gets to
-            the right place in a React application. But it can be annoying to
-            pass props when you have to send the same data to lots of components
-            or when components are far away from each other. This can make an
-            application slower and harder to work with. To solve this issue,
-            React provides a built-in feature known as the context API that
-            helps us to send data without passing props.
+            Access Token: An access token is a credential that represents the
+            authorization to access specific resources or perform certain
+            actions within a system. It is typically issued by an authentication
+            server (such as OAuth or OpenID Connect) after a user successfully
+            logs in or authorizes an application. The access token is then sent
+            along with each subsequent request to the server, allowing the
+            server to validate the token and grant access to the requested
+            resources. Refresh Token: A refresh token is a long-lived credential
+            that is also issued by the authentication server. It is used to
+            obtain a new access token once the current one expires. Instead of
+            requiring the user to authenticate again, the refresh token can be
+            sent to the authentication server to get a new access token without
+            prompting the user for their credentials. Refresh tokens are usually
+            used to maintain a user's session and provide a seamless user
+            experience.
             <br />
           </p>
         </div>
@@ -34,17 +36,30 @@ const Blog = () => {
             02. Compare SQL and NoSQL databases?
           </p>
           <p>
-            The main reason to write a custom hook is for code reusability. For
-            example, instead of writing the same code across multiple components
-            that use the same common stateful logic, we can put that code inside
-            a custom hook and reuse it. Besides, when we have multiple
-            components that use like the activities data. These components will
-            have the loading state and the activities state in common. Here’s
-            where we want to extract the shared state and the shared useEffect
-            fetch hook into our own custom hook so we don’t repeat it. This way
-            we can keep our components as simple as possible and isolate the
-            testable logic in a custom hook function, as well as making shared
-            logic between components reusable.
+            Structure: SQL databases are based on a structured and predefined
+            schema. They use tables with rows and columns to organize and store
+            data. Each row represents a record, and each column represents a
+            data attribute. Data Integrity: SQL databases enforce strong data
+            consistency and integrity through features such as primary keys,
+            foreign keys, and constraints. This ensures that data follows
+            predefined rules and relationships. Query Language: SQL databases
+            use SQL as the standard query language for performing operations
+            like selecting, inserting, updating, and deleting data. SQL provides
+            a declarative way to specify what data is needed, and the database
+            system takes care of how to retrieve it. <br/>
+            Structure: NoSQL databases
+            are schema-less or have a flexible schema. They store data in
+            various formats like key-value pairs, documents, column families, or
+            graphs. This flexibility allows for agile development and handling
+            unstructured or semi-structured data. Scalability: NoSQL databases
+            are designed for horizontal scalability. They can distribute data
+            across multiple servers, allowing them to handle large amounts of
+            data and high read/write loads. They often provide automatic
+            sharding and replication mechanisms. Performance: NoSQL databases
+            excel in handling large-scale data and high-velocity workloads. They
+            prioritize performance and scalability over strict data consistency,
+            making them suitable for applications with high throughput and
+            real-time requirements.
             <br />
           </p>
         </div>
