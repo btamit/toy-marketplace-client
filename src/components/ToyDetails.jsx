@@ -13,7 +13,7 @@ const ToyDetails = () => {
     },[id])
 
     return (
-      <div className="bg-slate-800 p-5 rounded flex flex-col my-container">
+      <div className="bg-slate-800 p-5 rounded mb-20 flex flex-col my-container">
         <img
           className="mb-8 bg-gray-500 p-5 rounded"
           src={toyDetails.image}
