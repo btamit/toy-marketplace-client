@@ -31,12 +31,21 @@ const MyToys = () => {
     })
   }
 
+ const handleDelete = (id) => {
+   fetch(`http://localhost:5000/deleteToy/${id}`, {
+     method: "DELETE"
+   })
+     .then((res) => res.json())
+     .then((result) => {
+      console.log(result)
+     });
+ };
+
+
     return (
       <div className="my-container">
-        <div className='text-center mb-5'>
-          <button className="btn btn-primary">
-            Sorting by price
-          </button>
+        <div className="text-center mb-5">
+          <button className="btn btn-primary">Sorting by price</button>
         </div>
         <div className="overflow-x-auto">
           <table className="table table-compact w-full">
@@ -81,7 +90,12 @@ const MyToys = () => {
                   </td>
                   <td>
                     {" "}
-                    <button className="btn btn-primary my-3">Delete</button>
+                    <button
+                      onClick={() => handleDelete(toy._id)}
+                      className="btn btn-primary my-3"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}

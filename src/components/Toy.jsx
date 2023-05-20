@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Toy = ({toy}) => {
-    const {image,toyName,sellerName,email,price,rating,quantity,category,description} = toy;
+    const {image,toyName,sellerName,email,price,rating,quantity,category,description,_id} = toy;
     return (
       <div className="bg-gray-700 p-5">
         <img className="w-80 h-64 pb-3" src={image} alt="" />
@@ -18,7 +19,9 @@ const Toy = ({toy}) => {
             <FaStar></FaStar>
           </h4>
         </div>
-        <button className="btn btn-primary">View Details</button>
+        <Link to={`toyDetails/${_id}`}>
+          <button className="btn btn-primary">View Details</button>
+        </Link>
       </div>
     );
 };
