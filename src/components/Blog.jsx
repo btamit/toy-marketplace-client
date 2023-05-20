@@ -46,20 +46,20 @@ const Blog = () => {
             use SQL as the standard query language for performing operations
             like selecting, inserting, updating, and deleting data. SQL provides
             a declarative way to specify what data is needed, and the database
-            system takes care of how to retrieve it. <br/>
-            Structure: NoSQL databases
-            are schema-less or have a flexible schema. They store data in
-            various formats like key-value pairs, documents, column families, or
-            graphs. This flexibility allows for agile development and handling
-            unstructured or semi-structured data. Scalability: NoSQL databases
-            are designed for horizontal scalability. They can distribute data
-            across multiple servers, allowing them to handle large amounts of
-            data and high read/write loads. They often provide automatic
-            sharding and replication mechanisms. Performance: NoSQL databases
-            excel in handling large-scale data and high-velocity workloads. They
-            prioritize performance and scalability over strict data consistency,
-            making them suitable for applications with high throughput and
-            real-time requirements.
+            system takes care of how to retrieve it. <br />
+            Structure: NoSQL databases are schema-less or have a flexible
+            schema. They store data in various formats like key-value pairs,
+            documents, column families, or graphs. This flexibility allows for
+            agile development and handling unstructured or semi-structured data.
+            Scalability: NoSQL databases are designed for horizontal
+            scalability. They can distribute data across multiple servers,
+            allowing them to handle large amounts of data and high read/write
+            loads. They often provide automatic sharding and replication
+            mechanisms. Performance: NoSQL databases excel in handling
+            large-scale data and high-velocity workloads. They prioritize
+            performance and scalability over strict data consistency, making
+            them suitable for applications with high throughput and real-time
+            requirements.
             <br />
           </p>
         </div>
@@ -68,18 +68,26 @@ const Blog = () => {
             03. What is express js? What is Nest JS?
           </p>
           <p>
-            useRef is a built-in React hook that accepts one argument as the
-            initial value and returns a reference. A reference is an object
-            having a special property current. So, in short, we can say that the
-            useRef Hook lets us create mutable variables inside functional
-            components. There are three main key points that you should keep in
-            mind when using the useRef Hook: A ref created with useRef will be
-            created only when the component has been mounted and preserved for
-            the full lifecycle. Refs can be used for accessing DOM nodes or
-            React elements, and for storing mutable variables (like with
-            instance variables in class components). Updating a ref is a side
-            effect so it should be done only inside a useEffect (or
-            useLayoutEffect) or inside an event handler.
+            Express.js is a minimal and flexible web application framework for
+            Node.js. It provides a simple and unopinionated set of tools for
+            building web applications and APIs. Express.js allows developers to
+            define routes, handle HTTP requests and responses, and implement
+            middleware functions to add functionality to their applications. It
+            has a lightweight core and a vast ecosystem of middleware and
+            extensions, making it highly customizable. Express.js is well-suited
+            for small to medium-sized applications that require flexibility and
+            a lightweight framework. <br />
+            Nest.js: Nest.js is a progressive, opinionated, and full-featured
+            web framework for building scalable and maintainable server-side
+            applications. It is built with TypeScript and takes inspiration from
+            Angular's architecture and concepts. Nest.js provides a higher level
+            of abstraction compared to Express.js and promotes a modular and
+            structured approach to building applications. It offers features
+            like dependency injection, modules, decorators, middleware, and
+            built-in support for features like routing, validation,
+            authentication, and database integration. Nest.js is designed for
+            building complex, enterprise-grade applications with a focus on
+            maintainability and extensibility.
             <br />
           </p>
         </div>
@@ -88,22 +96,29 @@ const Blog = () => {
             04. What is MongoDB aggregate and how does it work?
           </p>
           <p>
-            useMemo is a React Hook that lets you cache the result of a
-            calculation between re-renders.In fact, the useMemo is a hook used
-            in the functional component of react that returns a memoized value.
-            In Computer Science, memoization is a concept used in general when
-            we don’t need to recompute the function with a given argument for
-            the next time as it returns the cached result. A memoized function
-            remembers the results of output for a given set of inputs. For
-            example, if there is a function to add two numbers, and we give the
-            parameter as 1 and 2 for the first time the function will add these
-            two numbers and return 3, but if the same inputs come again then we
-            will return the cached value i.e 3 and not compute with the add
-            function again. In react also, we use this concept, whenever in the
-            React component, the state and props do not change the component and
-            the component does not re-render, it shows the same output. The
-            useMemo hook is used to improve performance in our React
-            application.
+            In MongoDB, the aggregate framework is a powerful tool used for data
+            aggregation operations. It allows you to process and analyze data
+            from multiple documents in a collection and perform operations like
+            grouping, filtering, projecting, and computing aggregate values. The
+            aggregate framework works on the principle of a pipeline, where
+            multiple stages are applied sequentially to transform and manipulate
+            the data. <br />
+            01.Pipeline Stages:$group: Groups documents by a specific field and
+            performs aggregations within each group. $project: Reshapes the
+            documents by specifying which fields to include or exclude. $sort:
+            Sorts the documents based on specified criteria. $limit: Limits the
+            number of documents to be processed. $skip: Skips a specified number
+            of documents. <br />
+            02. Processing Order: The pipeline stages are executed in the order
+            they appear in the pipeline. The output of one stage becomes the
+            input for the next stage, allowing you to chain operations together. <br/>
+            03.Aggregation Operators: The aggregate framework provides a wide range
+            of operators that you can use within pipeline stages to perform
+            various computations, transformations, and aggregations. Some
+            examples include: Arithmetic operators: $add, $subtract, $multiply,
+            etc. Comparison operators: $eq, $ne, $gt, $lt, etc. Array operators:
+            $size, $push, $addToSet, etc. Accumulators: $sum, $avg, $min, $max,
+            etc.
           </p>
         </div>
       </div>
