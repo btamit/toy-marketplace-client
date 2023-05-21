@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import UpdateToy from './UpdateToy';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MyToys = () => {
   const {user} = useContext(AuthContext);
@@ -33,78 +35,89 @@ const MyToys = () => {
   }
 
  const handleDelete = (id) => {
-   fetch(`http://localhost:5000/deleteToy/${id}`, {
+  const proceed = confirm('Are you really want to delete?');
+  if(proceed){
+    fetch(`http://localhost:5000/deleteToy/${id}`, {
      method: "DELETE"
    })
      .then((res) => res.json())
      .then((result) => {
-      console.log(result)
+      console.log(result);
+      if(result.deletedCount > 0){
+        toast('Deleted Successfully');
+        const remaining = toys.filter(toy =>toy._id !==id);
+        setToys(remaining);
+      }
      });
+    }
  };
 
 
     return (
-      <div className="my-container">
-        <h2 className='text-center text-5xl font-bold underline'>My Toys</h2>
-        <div className=" mb-5">
-          <button className="btn btn-primary">Sorting by price</button>
-        </div>
-        <div className="overflow-x-auto">
-          <table className="table table-compact w-full">
-            <thead>
-              <tr>
-                <th>Serial No.</th>
-                <th>Car's Photo</th>
-                <th>Toy's Name</th>
-                <th>Seller Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Category</th>
-                <th>Description</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {toys.map((toy, index) => (
+      <>
+        <div className="my-container">
+          <h2 className="text-center text-5xl font-bold underline">My Toys</h2>
+          <div className=" mb-5">
+            <button className="btn btn-primary">Sorting by price</button>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="table table-compact w-full">
+              <thead>
                 <tr>
-                  <th>{index + 1}</th>
-                  <td>
-                    <img className="h-20 w-32" src={toy.image} alt="" />
-                  </td>
-                  <td>{toy.toyName}</td>
-                  <td>{toy.sellerName}</td>
-                  <td>$ {toy.price}</td>
-                  <td>{toy.quantity}</td>
-                  <td>{toy.category}</td>
-                  <td>{toy.description}</td>
-                  <td>
-                    {" "}
-                    <label
-                      htmlFor="my-modal-5"
-                      className="btn btn-primary my-3"
-                    >
-                      Update
-                    </label>
-                    <UpdateToy
-                      toy={toy}
-                      handleUpdate={handleUpdate}
-                    ></UpdateToy>
-                  </td>
-                  <td>
-                    {" "}
-                    <button
-                      onClick={() => handleDelete(toy._id)}
-                      className="btn btn-primary my-3"
-                    >
-                      Delete
-                    </button>
-                  </td>
+                  <th>Serial No.</th>
+                  <th>Car's Photo</th>
+                  <th>Toy's Name</th>
+                  <th>Seller Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Category</th>
+                  <th>Description</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {toys.map((toy, index) => (
+                  <tr>
+                    <th>{index + 1}</th>
+                    <td>
+                      <img className="h-20 w-32" src={toy.image} alt="" />
+                    </td>
+                    <td>{toy.toyName}</td>
+                    <td>{toy.sellerName}</td>
+                    <td>$ {toy.price}</td>
+                    <td>{toy.quantity}</td>
+                    <td>{toy.category}</td>
+                    <td>{toy.description}</td>
+                    <td>
+                      {" "}
+                      <label
+                        htmlFor="my-modal-5"
+                        className="btn btn-primary my-3"
+                      >
+                        Update
+                      </label>
+                      <UpdateToy
+                        toy={toy}
+                        handleUpdate={handleUpdate}
+                      ></UpdateToy>
+                    </td>
+                    <td>
+                      {" "}
+                      <button
+                        onClick={() => handleDelete(toy._id)}
+                        className="btn btn-primary my-3"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+        <ToastContainer></ToastContainer>
+      </>
     );
 };
 
