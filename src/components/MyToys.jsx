@@ -5,9 +5,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const MyToys = () => {
-  const {user} = useContext(AuthContext);
+const {user} = useContext(AuthContext);
  const [toys, setToys] = useState([]);
  const [control, setControl] = useState([]);
+
   useEffect(() => {
     document.title = "Toy-Shop | My Toys";
   }, []);
@@ -57,8 +58,8 @@ const MyToys = () => {
       <>
         <div className="my-container">
           <h2 className="text-center text-5xl font-bold underline">My Toys</h2>
-          <div className=" mb-5">
-            <button className="btn btn-primary">Sorting by price</button>
+          <div className=" mb-5 flex justify-between">
+            <p className='text-white'>Descending Sort Auto implemented by price</p>
           </div>
           <div className="overflow-x-auto">
             <table className="table table-compact w-full">
@@ -85,6 +86,7 @@ const MyToys = () => {
                     <td>{toy.toyName}</td>
                     <td>{toy.sellerName}</td>
                     <td>$ {toy.price}</td>
+                    
                     <td>{toy.quantity}</td>
                     <td>{toy.category}</td>
                     <td>{toy.description}</td>
