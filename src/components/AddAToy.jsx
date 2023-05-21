@@ -19,7 +19,7 @@ const AddAToy = () => {
  } = useForm();
 
  const onSubmit = (data,e) => {
-   fetch("http://localhost:5000/addAToy", {
+   fetch("https://toy-shop-server-three.vercel.app/addAToy", {
      method: "POST",
      headers: { "Content-Type": "application/json" },
      body: JSON.stringify(data),
@@ -27,9 +27,9 @@ const AddAToy = () => {
      .then((res) => res.json())
      .then((result) => {
        console.log(result);
-       if(result.insertedId){
-        toast('Toy added successfully');
-        e.target.reset();
+       if (result.insertedId) {
+         toast("Toy added successfully");
+         e.target.reset();
        }
      });
    console.log(data);

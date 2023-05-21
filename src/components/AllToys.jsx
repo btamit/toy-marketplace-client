@@ -10,27 +10,27 @@ const AllToys = () => {
  }, []);
  // API FOR ALL TOYS
  useEffect(() => {
-   fetch("http://localhost:5000/allToys")
+   fetch("https://toy-shop-server-three.vercel.app/allToys")
      .then((res) => res.json())
      .then((result) => {
        setToys(result);
-       console.log(result)
+       console.log(result);
      });
  },[]);
 
 
 // SEARCH FILTER FOR CATEGORY
 useEffect(() =>{
-  fetch(`http://localhost:5000/toySearch/sports`)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data)
-  })
+  fetch(`https://toy-shop-server-three.vercel.app/toySearch/sports`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    });
 },[])
 
 
 const handleSearch = () =>{
-     fetch(`http://localhost:5000/toySearch/${searchText}`)
+     fetch(`https://toy-shop-server-three.vercel.app/toySearch/${searchText}`)
        .then((res) => res.json())
        .then((data) => {
          setToys(data);

@@ -54,7 +54,7 @@ const Home = () => {
       const [activeTab, setActiveTab] = useState("Sports Car");
 
       useEffect(() => {
-        fetch(`http://localhost:5000/allToys/${activeTab}`)
+        fetch(`https://toy-shop-server-three.vercel.app/allToys/${activeTab}`)
           .then((res) => res.json())
           .then((result) => {
             setToys(result);

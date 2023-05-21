@@ -13,43 +13,43 @@ const {user} = useContext(AuthContext);
     document.title = "Toy-Shop | My Toys";
   }, []);
   useEffect(() =>{
-    fetch(`http://localhost:5000/myToys/${user?.email}`)
-    .then(res => res.json())
-    .then(data => {
-      setToys(data)
-      console.log(data)
-    })
+    fetch(`https://toy-shop-server-three.vercel.app/myToys/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setToys(data);
+        console.log(data);
+      });
   },[user,control]);
 
   const handleUpdate = (data) => {
-    fetch(`http://localhost:5000/updateToy/${data?._id}`,{
-      method:'PUT',
-      headers: {"Content-Type" : "application/json"},
+    fetch(`https://toy-shop-server-three.vercel.app/${data?._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     })
-    .then((res) => res.json())
-    .then((result) =>{
-      if(result.modifiedCount > 0){
-        setControl(!control)
-      }
-    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.modifiedCount > 0) {
+          setControl(!control);
+        }
+      });
   }
 
  const handleDelete = (id) => {
   const proceed = confirm("Are you really want to delete?");
   if(proceed){
-    fetch(`http://localhost:5000/deleteToy/${id}`, {
-     method: "DELETE"
-   })
-     .then((res) => res.json())
-     .then((result) => {
-      console.log(result);
-      if(result.deletedCount > 0){
-        toast('Deleted Successfully');
-        const remaining = toys.filter(toy =>toy._id !==id);
-        setToys(remaining);
-      }
-     });
+    fetch(`https://toy-shop-server-three.vercel.app/deleteToy/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.deletedCount > 0) {
+          toast("Deleted Successfully");
+          const remaining = toys.filter((toy) => toy._id !== id);
+          setToys(remaining);
+        }
+      });
     }
  };
 
