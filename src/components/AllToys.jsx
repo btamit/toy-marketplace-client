@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 
 const AllToys = () => {
  const [toys, setToys] = useState([]);
@@ -44,7 +46,9 @@ const handleSearch = () =>{
             placeholder="Toy's Name"
             className="p-3 bg-slate-600"
           />
-          <button onClick={handleSearch} className="btn btn-primary">Search</button>
+          <button onClick={handleSearch} className="btn btn-primary">
+            Search
+          </button>
         </div>
 
         <div className="overflow-x-auto">
@@ -74,10 +78,11 @@ const handleSearch = () =>{
                   <td>{toy.quantity}</td>
                   <td>{toy.category}</td>
                   <td>
-                    {" "}
-                    <button className="btn btn-primary my-3">
-                      View Details
-                    </button>
+                    <Link to={`toyDetails/${toy?._id}`}>
+                      <button className="btn btn-primary my-3">
+                        View Details
+                      </button>
+                    </Link>
                   </td>
                 </tr>
               ))}
