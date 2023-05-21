@@ -10,12 +10,13 @@ const MyToys = () => {
     document.title = "Toy-Shop | My Toys";
   }, []);
   useEffect(() =>{
-    fetch(`http://localhost:5000/myAllToys/${user?.email}`)
+    fetch(`http://localhost:5000/myToys/${user?.email}`)
     .then(res => res.json())
     .then(data => {
       setToys(data)
+      console.log(data)
     })
-  },[user, control]);
+  },[user,control]);
 
   const handleUpdate = (data) => {
     fetch(`http://localhost:5000/updateToy/${data?._id}`,{
@@ -44,7 +45,8 @@ const MyToys = () => {
 
     return (
       <div className="my-container">
-        <div className="text-center mb-5">
+        <h2 className='text-center text-5xl font-bold underline'>My Toys</h2>
+        <div className=" mb-5">
           <button className="btn btn-primary">Sorting by price</button>
         </div>
         <div className="overflow-x-auto">

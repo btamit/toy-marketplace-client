@@ -1,9 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+   useEffect(() => {
+     document.title = "Toy-Shop | Sign Up";
+   }, []);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
    const navigate = useNavigate();

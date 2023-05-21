@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
@@ -7,6 +7,9 @@ import app from "../../../firebase/firebase.config";
 
 const Login = () => {
   const auth = getAuth(app);
+    useEffect(() => {
+      document.title = "Toy-Shop | Login";
+    }, []);
   const [error, setError] = useState('');
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
