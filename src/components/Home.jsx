@@ -40,16 +40,6 @@ const Home = () => {
       .catch((error) => console.log(error));
   }, []);
 
-
-  // const [allToys, setAllToys] = useState([]);
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/cars")
-  //     .then((res) => res.json())
-  //     .then((data) => setCars(data))
-  //     .catch((error) => console.log(error));
-  // }, []);
-
-
       const [toys, setToys] = useState([]);
       const [activeTab, setActiveTab] = useState("Sports Car");
 
@@ -212,7 +202,7 @@ const Home = () => {
         <div>
           <img
             className=""
-            src="https://thumbs.dreamstime.com/b/istanbul-turkey-june-toy-cars-one-bazaars-istanbul-toy-cars-one-bazaars-istanbul-228216341.jpg"
+            src="https://www.shutterstock.com/image-photo/multi-colored-toy-cars-lined-600w-786727891.jpg"
             alt=""
           />
         </div>

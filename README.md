@@ -18,7 +18,7 @@ In a few categories, a button has been included for details information. Besides
 
 
 ## Live Link
-Hosted in firebase -> [Toy Shop]()
+Hosted in firebase -> [Toy Shop](https://toy-shop-client-265b7.web.app/)
 
 ## API 
 Simple API are included in this project.

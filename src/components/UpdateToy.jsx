@@ -12,23 +12,6 @@ const UpdateToy = ({toy,handleUpdate}) => {
     formState: { errors },
   } = useForm();
 
-//   const onSubmit = (data, e) => {
-//     fetch("http://localhost:5000/addAToy", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(data),
-//     })
-//       .then((res) => res.json())
-//       .then((result) => {
-//         console.log(result);
-//         if (result.insertedId) {
-//           toast("Toy added successfully");
-//           e.target.reset();
-//         }
-//       });
-//     console.log(data);
-//   };
-
   return (
     <div>
       {/* The button to open modal */}
@@ -71,7 +54,7 @@ const UpdateToy = ({toy,handleUpdate}) => {
                 className="w-1/3 p-2 my-3"
                 value={user?.email}
                 {...register("email")}
-                // placeholder="Your Email"
+                placeholder="Your Email"
                 type="email"
               />
             </div>

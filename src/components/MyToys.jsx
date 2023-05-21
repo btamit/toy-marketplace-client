@@ -7,33 +7,36 @@ import "react-toastify/dist/ReactToastify.css";
 const MyToys = () => {
 const {user} = useContext(AuthContext);
  const [toys, setToys] = useState([]);
- const [control, setControl] = useState([]);
+ const [control, setControl] = useState(false);
 
   useEffect(() => {
     document.title = "Toy-Shop | My Toys";
   }, []);
-  useEffect(() =>{
-    fetch(`https://toy-shop-server-three.vercel.app/myToys/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setToys(data);
-        console.log(data);
-      });
-  },[user,control]);
 
-  const handleUpdate = (data) => {
-    fetch(`https://toy-shop-server-three.vercel.app/updateToy/${data?._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.modifiedCount > 0) {
-          setControl(!control);
-        }
-      });
-  }
+
+useEffect(() =>{
+  fetch(`https://toy-shop-server-three.vercel.app/myToys/${user?.email}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setToys(data);
+    });
+},[user,control])
+
+
+const handleUpdate = (data) =>{
+  fetch(`https://toy-shop-server-three.vercel.app/updateToy/${data?._id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((result) => {
+      console.log(result);
+      if (result.modifiedCount > 0) {
+        setControl(!control);
+      }
+    });
+}
 
 
  const handleDelete = (id) => {
@@ -60,7 +63,9 @@ const {user} = useContext(AuthContext);
         <div className="my-container">
           <h2 className="text-center text-5xl font-bold underline">My Toys</h2>
           <div className=" mb-5 flex justify-between">
-            <p className='text-white'>Descending Sort Auto implemented by price</p>
+            <p className="text-white">
+              Ascending Sort Auto implemented by price
+            </p>
           </div>
           <div className="overflow-x-auto">
             <table className="table table-compact w-full">
@@ -87,7 +92,7 @@ const {user} = useContext(AuthContext);
                     <td>{toy.toyName}</td>
                     <td>{toy.sellerName}</td>
                     <td>$ {toy.price}</td>
-                    
+
                     <td>{toy.quantity}</td>
                     <td>{toy.category}</td>
                     <td>{toy.description}</td>

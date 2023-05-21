@@ -89,12 +89,6 @@ const handleSearch = () =>{
             </tbody>
           </table>
         </div>
-
-        {/* <div className="">
-          {toys.map((toy, index) => (
-            <AllToy key={toy.id} toy={toy} index={index}></AllToy>
-          ))}
-        </div> */}
       </div>
     );
 };
