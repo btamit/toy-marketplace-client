@@ -36,7 +36,7 @@ const {user} = useContext(AuthContext);
   }
 
  const handleDelete = (id) => {
-  const proceed = confirm('Are you really want to delete?');
+  const proceed = confirm("Are you really want to delete?");
   if(proceed){
     fetch(`http://localhost:5000/deleteToy/${id}`, {
      method: "DELETE"

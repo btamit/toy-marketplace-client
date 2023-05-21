@@ -33,6 +33,7 @@ const ToyDetails = () => {
             <FaStar className="text-yellow-300"></FaStar>
           </div>
         </div>
+        <p className='my-5 text-xl font-bold'>Sub-Category : {toyDetails.category}</p>
         <p className='my-5 font-bold'>Quantity : {toyDetails.quantity}</p>
         <p className='font-bold'>Description : {toyDetails.description}</p>
       </div>
