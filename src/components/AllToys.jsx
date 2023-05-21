@@ -6,6 +6,7 @@ const AllToys = () => {
  useEffect(() => {
    document.title = "Toy-Shop | All Toys";
  }, []);
+ // API FOR ALL TOYS
  useEffect(() => {
    fetch("http://localhost:5000/allToys")
      .then((res) => res.json())
@@ -15,6 +16,8 @@ const AllToys = () => {
      });
  },[]);
 
+
+// SEARCH FILTER FOR CATEGORY
 useEffect(() =>{
   fetch(`http://localhost:5000/toySearch/sports`)
   .then((res) => res.json())
