@@ -22,7 +22,7 @@ const {user} = useContext(AuthContext);
   },[user,control]);
 
   const handleUpdate = (data) => {
-    fetch(`https://toy-shop-server-three.vercel.app/${data?._id}`, {
+    fetch(`https://toy-shop-server-three.vercel.app/updateToy/${data?._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -34,6 +34,7 @@ const {user} = useContext(AuthContext);
         }
       });
   }
+
 
  const handleDelete = (id) => {
   const proceed = confirm("Are you really want to delete?");
